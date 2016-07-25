@@ -1,0 +1,210 @@
+% UCLM (Universidad de Castilla la Mancha) presentation theme for beamer
+%
+% Gustavo
+%
+% Changelog:
+%
+% Version 0.1:
+%   First public version.
+
+\ProvidesPackage{beamerthemeUCLM}[2016/07/02]
+
+
+
+
+\definecolor{UCLMGris}{RGB}{200,200,200}
+\definecolor{UCLMMorado}{RGB}{179,0,51}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[width=.15\paperwidth]{sidebar}
+\setlength{\beamer@headheight}{.185\paperheight}
+\pgfdeclareimage[width=.1\paperwidth]{small-logo}{etsii}
+\pgfdeclareimage[width=.4\paperwidth]{type-logo}{biglogouclm}
+\pgfdeclareimage[width=.15\paperwidth]{type-logo_2}{logo_cir}
+\pgfdeclareimage[width=.33\paperwidth]{white-logo}{uclm2}
+\pgfdeclareimage[width=.33\paperwidth]{large-corner}{large-corner}
+\pgfdeclareimage[height=\beamer@headheight]{small-corner}{small-corner}
+\setbeamertemplate{sidebar left}{%
+\vskip7pt
+\insertverticalnavigation{\beamer@sidebarwidth}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Opciones de Entrada  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOptionBeamer{ocultarotrassubsecciones}[]{\beamer@nav@subsectionstyle{show/show/hide}} % Solo muestra las subsecciones de la seccion actual
+\DeclareOptionBeamer{ocultartodassubsecciones}[]{\beamer@nav@subsectionstyle{hide}} % No muestra ninguna subseccion
+
+%\DeclareOptionBeamer{width}{\beamer@sidebarwidth=#1}
+%\DeclareOptionBeamer{height}{\beamer@headheight=#1}
+%\DeclareOptionBeamer{left}{\def\beamer@sidebarside{left}}
+%\DeclareOptionBeamer{right}{\def\beamer@sidebarside{right}}
+%\ExecuteOptionsBeamer{left}
+\ProcessOptionsBeamer
+
+
+\setbeamertemplate{footline}[text line]{%
+\insertshortauthor\strut\hfill\insertshorttitle\hfill\insertshortdate\hspace{1em}\insertframenumber/\inserttotalframenumber}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{\beamer@headheight+18pt}
+\pgftext[at=\pgfpoint{\paperwidth}{-\beamer@headheight},right,base]{\pgfuseimage{small-corner}}
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{0pt}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-\beamer@headheight}}
+\pgfsetlinewidth{3.5pt}
+\pgfsetinnerlinewidth{1pt}
+\pgfsetinnerstrokecolor{UCLMGris}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.23\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.97\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetinnerlinewidth{0pt}
+\pgfsetcolor{UCLMGris}
+\pgfusepath{stroke}
+\pgftext[at=\pgfpoint{.075\paperwidth}{-.97\paperheight},center,base]{\pgfuseimage{small-logo}}
+\end{pgfpicture}%
+\vskip-25pt%
+}
+
+\addtobeamertemplate{title page}{%
+\usebeamertemplate{title background}%
+\vskip .2\paperheight%
+}
+{}
+
+\newcommand\DoPurpleBackground{%
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-\paperheight}}
+\pgfsetfillcolor{UCLMMorado}
+\pgfusepath{fill}
+\pgftext[at=\pgfpoint{\paperwidth}{-\paperheight},right,base]{\pgfuseimage{large-corner}}
+}
+
+\setbeamertemplate{title background}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoPurpleBackground
+
+% Linea blanca arriba
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-.25\paperheight}}
+\pgfsetfillcolor{white}
+\pgfusepath{fill}
+
+% Logo
+\pgftext[at=\pgfpoint{.02\paperwidth}{-.17\paperheight},left,base]{\pgfuseimage{type-logo_2}}
+\pgftext[at=\pgfpoint{\paperwidth}{-.17\paperheight},right,base]{\pgfuseimage{type-logo}}
+% Linea corta a la izquierda
+\pgfpathrectanglecorners{\pgfpoint{0pt}{-.19\paperheight}}{\pgfpoint{.15\paperwidth}{-.24\paperheight}}
+\pgfsetfillcolor{UCLMMorado}
+\pgfusepath{fill}
+
+
+\pgfpathrectanglecorners{\pgfpoint{.15\paperwidth}{-.19\paperheight}}{\pgfpoint{\paperwidth}{-.24\paperheight}}
+\pgfsetfillcolor{UCLMGris}
+\pgfusepath{fill}
+
+% Linea debajo de la mitad
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.19\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.24\paperheight}}
+\pgfsetlinewidth{3.5pt}
+\pgfsetinnerlinewidth{1pt}
+\pgfsetinnerstrokecolor{UCLMGris}
+\pgfsetrectcap
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.3\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.58\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetinnerlinewidth{0pt}
+\pgfsetcolor{UCLMGris}
+\pgfusepath{stroke}
+
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.67\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.78\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.9\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.95\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+
+%\pgftext[at=\pgfpoint{.16\paperwidth}{-.92\paperheight},left,base]{\tiny www.uclm.es}
+\end{pgfpicture}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+\setlength{\leftmargini}{.5em}
+\setlength{\leftmarginii}{1.0em}
+\setlength{\leftmarginiii}{1.5em}
+\setlength{\leftmarginiv}{2.0em}
+\setlength{\leftmarginv}{2.5em}
+\setlength{\leftmarginvi}{3.0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colores
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme[named=UCLMGris]{structure}
+\usecolortheme{rose}
+\setbeamercolor{title page}{fg=white}
+\setbeamercolor{logo}{bg=UCLMGris}
+\setbeamercolor{frametitle}{fg=UCLMGris,bg=UCLMMorado}
+% Tamaño y colores de la letra de la Barra lateral 
+\setbeamerfont{section in sidebar}{size=\fontsize{4}{4}\selectfont}
+\setbeamerfont{subsection in sidebar}{size=\fontsize{4}{4}\selectfont}
+\setbeamerfont{subsubsection in sidebar}{size=\fontsize{4}{4}\selectfont}
+
+\setbeamercolor{section in sidebar}{fg=UCLMMorado}
+\setbeamerfont{section in sidebar}{series=\bfseries}
+\setbeamercolor{block title}{bg=UCLMMorado!28!white,fg=UCLMMorado}
+\setbeamercolor{block body}{bg=UCLMGris!15!white}
+
+\setbeamercolor{section in toc}{fg=UCLMMorado}
+\setbeamercolor{subsection in toc}{fg=UCLMGris!40!black}
+\setbeamercolor{section number projected}{bg=UCLMGris!40!black,fg=white}
+\setbeamercolor{subsection number projected}{bg=UCLMGris!40!black,fg=white}
+
+\newcommand\ThankYouFrame{
+\begin{frame}[plain,t]
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoPurpleBackground
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.5\paperheight},center,center]{\pgfuseimage{white-logo}}
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.3\paperheight},center,center]{\Huge\structure{GRACIAS}}
+\end{pgfpicture}
+\end{frame}
+}
+
+\newcommand\DiapositivaText[1]{
+\begin{frame}[plain,t]
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoPurpleBackground
+%\pgftext[at=\pgfpoint{.5\paperwidth}{-.5\paperheight},center,center]{\pgfuseimage{white-logo}}
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.5\paperheight},center,center]{\bf\Huge\structure{#1}}
+\end{pgfpicture}
+\end{frame}
+}
+

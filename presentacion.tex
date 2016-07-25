@@ -1,0 +1,221 @@
+\documentclass{beamer}
+%Opción para que no se muestre el índice completo en la izquierda de las diapositivas
+\usetheme[ocultarotrassubsecciones]{UCLM}
+
+\include{paquetes}
+%% TIPO DE LETRA
+\usepackage{helvet}
+
+
+% Para añadir directores en la primera página
+\makeatletter
+\long\def\beamer@author[#1]#2{%
+	\def\insertauthor{\scriptsize\def\inst{\beamer@insttitle}\def\and{\beamer@andtitle}%
+		\begin{tabular}{rl}#2\end{tabular}}%
+	\def\beamer@shortauthor{#1}%
+	\ifbeamer@autopdfinfo%
+	\def\beamer@andstripped{}%
+	\beamer@stripands#1 \and\relax
+	{\let\inst=\@gobble\let\thanks=\@gobble\def\and{, }\hypersetup{pdfauthor={\beamer@andstripped}}}
+	\fi%
+}
+\makeatother
+
+
+\title{TRABAJO FIN DE GRADO Nº XX-3-XXXXXX}
+\subtitle{TÍTULO DEL TRABAJO}
+
+
+\author[MI NOMBRE]{%	
+	Autor: & MI NOMBRE \\
+	Directores: & DIRECTOR 1 \\
+				& DIRECTOR 2 \\
+}
+
+%\date{26 de julio de 2016}
+\date{\today}
+
+\setlength{\multicolsep}{0.0pt plus 0.0pt minus 0.0pt}% 50% of original values
+\setlength{\columnsep}{0.05cm}
+\begin{document}
+\settocdepth{subsection}
+\begin{frame}[plain,t]
+\titlepage
+\end{frame}
+
+% Indice en dos columnas en caso de que sea demasiado largo
+\begin{frame}{\contentsname}
+	\begin{multicols}{2}
+		\noindent
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+
+\section{Sección 1}
+\subsection{Subsección 1}
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Título 2}
+	\begin{itemize}
+		\item Item 1.
+		\item Item 2.
+		\item Item 3.
+	\end{itemize}
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width = 0.85\linewidth]{imagenes/carro.pdf}
+	\end{figure}
+\end{frame}
+
+\subsection{Subsección 2}
+\begin{frame}
+	\frametitle{Título 3}
+	\framesubtitle{Título 4}
+	\begin{itemize}
+		\item Item 1.
+		\item Item 2.
+		\item Item 3.
+	\end{itemize}
+\end{frame}
+
+\subsection{Subsección 3}
+\subsection{Subsección 4}
+
+\section{Sección 2}
+\subsection{Subsección 1}
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Título 2}
+	\begin{itemize}
+		\item Item 1.
+		\item Item 2.
+		\item Item 3.
+	\end{itemize}
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width = 0.6\linewidth]{imagenes/gaz2.png}
+	\end{figure}
+\end{frame}
+
+\subsection{Subsección 2}
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Título 2}
+
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width = 1\linewidth]{imagenes/sim_renacuajo.pdf}
+	\end{figure}
+\end{frame}
+
+\section{Sección 3}
+\subsection{Subsección 1}
+\begin{frame}[fragile]
+	\frametitle{Título 1}
+	\begin{itemize}
+		% Significado URDF
+		\item Representar modelos de robots.
+		\begin{itemize}
+			\item Permite describir las partes mecánicas de un robot y todas sus especificaciones.
+		\end{itemize}
+	\end{itemize}
+	
+	\begin{columns}[c]
+		\column{.45\textwidth}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width = 01\linewidth]{imagenes/estructura_nodos.pdf}
+			%\caption{Logo de ROS}
+			\label{Figura3_81}
+		\end{figure}
+		\column{.55\textwidth}
+		\begin{block}{URDF}		
+			\begin{lstlisting}[language=XML]
+			<robot name="robot">
+			<link> ... </link>
+			<link> ... </link>
+			<link> ... </link>
+			
+			<joint>  ....  </joint>
+			<joint>  ....  </joint>
+			<joint>  ....  </joint>
+			</robot>
+			\end{lstlisting}
+		\end{block}
+	\end{columns}
+	
+\end{frame}
+
+
+
+\subsection{Subsección 2}
+\begin{frame}[fragile]
+	\frametitle{Generación Automática de URDF}
+	
+	\begin{columns}[c]
+		\column{.35\textwidth}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width = 0.8\linewidth]{imagenes/generacion_automatica.pdf}
+		\end{figure}
+		\column{.55\textwidth}
+
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width = 1\linewidth]{imagenes/generador_urdf.png}
+				%\caption{Logo de ROS}
+				\label{Figura3_83}
+			\end{figure}
+	\end{columns}	
+\end{frame}
+
+\DiapositivaText{Texto}
+
+
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Video 1}
+	\href{run:videos/ser.avi?autostart&loop}{\includegraphics[width=0.8\linewidth,keepaspectratio]{videos/ser.jpg}} 
+\end{frame}
+
+\section{Sección 4}
+\subsection{Subección 1}
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Título 2}
+	\begin{itemize}
+		\item Item 1.
+		\item Item 2.
+		\item Item 3.
+	\end{itemize}
+\end{frame}
+\subsection{Subección 2}
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Título 2}
+	\begin{itemize}
+		\item Item 1.
+		\item Item 2.
+		\item Item 3.
+	\end{itemize}
+\end{frame}
+\subsection{Subección 3}
+\DiapositivaText{Texto3}
+\subsection{Subección 4}
+\begin{frame}
+	\frametitle{Título 1}
+	\framesubtitle{Título 2}
+	\begin{itemize}
+		\item Item 1.
+		\item Item 2.
+		\item Item 3.
+	\end{itemize}
+\end{frame}
+
+\section{Sección 5}
+\subsection{Subección 1}
+\ThankYouFrame
+\end{document}
